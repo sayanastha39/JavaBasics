@@ -25,28 +25,6 @@ public class SayanaTakeout {
 	public static void displayMainMenu() {
 		System.out.println("How many people are ordering?");
 		people = input.nextInt();
-		
-		if(people<100) {
-			System.out.println("What type of food will you order?");
-			System.out.println("1. Italian\n" + "2. Chinese\n" + "3. American");
-			 foodType = input.next();
-			
-			if(foodType.equalsIgnoreCase("Italian")) {
-				displayItalianFoodMenu();
-			}
-			else if (foodType.equalsIgnoreCase("Chinese")) {
-				displayChineseFoodMenu();
-			}
-			else if (foodType.equalsIgnoreCase("American")) {
-				displayAmericanFoodMenu();
-			}
-			else {
-				System.out.println("Invalid food type entered.");
-			}
-		}
-		else {
-			System.out.println("Number of people are invalid");
-		}
 	}
 	
 	public static void displayItalianFoodMenu() {
@@ -55,43 +33,6 @@ public class SayanaTakeout {
 							"2. Pizza Pack - Feeds 7 - 15.99\n" + 
 							"3. Gazpacho Soup, salad and bread sticks pack - Feeds 4 - 12.99");
 		 tray = input.next(); //next line because more than one word next() if only one work input
-		
-		if(tray.equalsIgnoreCase("Lasagna")) {
-			double cost = 17.99;
-			int feeds = 5;
-			determineTrays(people, feeds);
-			getSubtotal(cost,totalTrays);
-			getTax(cost, taxrate);
-			getTip(cost, tipRate);
-			getGrandTotal(cost, taxAmount, tips);
-			pricePerPerson(grandTotal, people);
-			determineLeftOvers(feeds,totalTrays, people);
-		}
-		else if(tray.equalsIgnoreCase("Pizza")) {
-			double cost = 15.99;
-			int feeds = 7;
-			determineTrays(people, feeds);
-			getSubtotal(cost,totalTrays);
-			getTax(cost, taxrate);
-			getTip(cost, tipRate);
-			getGrandTotal(cost, taxAmount, tips);
-			pricePerPerson(grandTotal, people);
-			determineLeftOvers(feeds,totalTrays, people);
-		}
-		else if(tray.equalsIgnoreCase("Salad")) {
-			double cost = 12.99;
-			int feeds = 4;
-			determineTrays(people, feeds);
-			getSubtotal(cost,totalTrays);
-			getTax(cost, taxrate);
-			getTip(cost, tipRate);
-			getGrandTotal(cost, taxAmount, tips);
-			pricePerPerson(grandTotal, people);
-			determineLeftOvers(feeds,totalTrays, people);
-		}
-		else {
-			System.out.println("Invalid tray");
-		}
 	}
 	
 	public static void displayChineseFoodMenu() {
@@ -99,43 +40,6 @@ public class SayanaTakeout {
 				"2. Sweet and Sour Pork Tray (includes 7 hot and sour soups, 7 egg rolls) - feeds 7 - 18.99\n" + 
 				"3. Shrimp Fried Rice Tray (includes 10 egg rolls) - Feeds 5 - 10.99");
 		 tray = input.next();
-		
-		if(tray.equalsIgnoreCase("Chicken")) {
-			double cost = 18.99;
-			int feeds = 7;
-			determineTrays(people, feeds);
-			getSubtotal(cost,totalTrays);
-			getTax(cost, taxrate);
-			getTip(cost, tipRate);
-			getGrandTotal(cost, taxAmount, tips);
-			pricePerPerson(grandTotal, people);
-			determineLeftOvers(feeds,totalTrays, people);
-		}
-		else if(tray.equalsIgnoreCase("Pork Tray")) {
-			double cost = 18.99;
-			int feeds = 7;
-			determineTrays(people, feeds);
-			getSubtotal(cost,totalTrays);
-			getTax(cost, taxrate);
-			getTip(cost, tipRate);
-			getGrandTotal(cost, taxAmount, tips);
-			pricePerPerson(grandTotal, people);
-			determineLeftOvers(feeds,totalTrays, people);
-		}
-		else if(tray.equalsIgnoreCase("Shrimp")) {
-			double cost = 10.99;
-			int feeds = 5;
-			determineTrays(people, feeds);
-			getSubtotal(cost,totalTrays);
-			getTax(cost, taxrate);
-			getTip(cost, tipRate);
-			getGrandTotal(cost, taxAmount, tips);
-			pricePerPerson(grandTotal, people);
-			determineLeftOvers(feeds,totalTrays, people);
-		}
-		else {
-			System.out.println("Invalid tray");
-		}
 	}
 	public static void displayAmericanFoodMenu() {
 		System.out.println("1. Hamburger and Hot Dog Tray - includes buns and condiments - feeds 8 - 21.99\n" + 
@@ -143,45 +47,9 @@ public class SayanaTakeout {
 				"3. Barbeque Tray - includes buns and peach cobbler - Feeds 10 - 26.99");
 		 tray = input.next();
 		
-		if(tray.equalsIgnoreCase("Hamburger")) {
-			double cost = 21.99;
-			int feeds = 8;
-			determineTrays(people, feeds);
-			getSubtotal(cost,totalTrays);
-			getTax(cost, taxrate);
-			getTip(cost, tipRate);
-			getGrandTotal(cost, taxAmount, tips);
-			pricePerPerson(grandTotal, people);
-			determineLeftOvers(feeds,totalTrays, people);
+		
 		}
-		else if(tray.equalsIgnoreCase("Chicken")) {
-			double cost = 22.99;
-			int feeds = 5;
-			determineTrays(people, feeds);
-			getSubtotal(cost,totalTrays);
-			getTax(cost, taxrate);
-			getTip(cost, tipRate);
-			getGrandTotal(cost, taxAmount, tips);
-			pricePerPerson(grandTotal, people);
-			determineLeftOvers(feeds,totalTrays, people);
-			
-		}
-		else if(tray.equalsIgnoreCase("Barbeque")) {
-			double cost = 26.99;
-			int feeds = 10;
-			determineTrays(people, feeds);
-			getSubtotal(cost,totalTrays);
-			getTax(cost, taxrate);
-			getTip(cost, tipRate);
-			getGrandTotal(cost, taxAmount, tips);
-			pricePerPerson(grandTotal, people);
-			determineLeftOvers(feeds,totalTrays, people);
-			
-		}
-		else {
-			System.out.println("Invalid tray");
-		}
-	}
+
 	
 	public static int determineTrays(int people, int feeds) {
 		totalTrays = (people/feeds);
