@@ -2,62 +2,56 @@ package SayanaLab1;
 
 public class BankAccount {
 	
-	 String name;
-	 double balance;
-	 int accountNumber;
+	 private String name;
+	 private double initialBalance;
+	 private int accountNum;
+	 private static int accountNumber = 1000;
 	 int fee;
 	 int interest;
 	 
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public double getBalance() {
-		return balance;
-	}
-
-	public void setBalance(double balance) {
-		this.balance = balance;
-	}
-
-	public int getAccountNumber() {
-		return accountNumber;
-	}
-
-	public void setAccountNumber(int accountNumber) {
-		this.accountNumber = accountNumber;
-	}
-
 	public BankAccount(String name) {
-		accountNumber = this.accountNumber;
-		balance= 0.0;
-	}
-	
-	public BankAccount(String name, double balance ) {
-		accountNumber = this.accountNumber;
-		
-	}
-
-	public void withdrawFunds(double balance, int fee) {
-		
-		balance = this.balance - fee;
+		this.name= name;
+		this.initialBalance = 0;
+		this.accountNum=accountNumber++;
+		displayInfo();
 		
 	}
 	
-	public void depositFunds(double balance, int interest) {
-		
-		balance = balance+ ((interest/100)*balance);
-		
+	public BankAccount(String name, double initialBalance ) {
+		this.name= name;
+		this.initialBalance = initialBalance;
+		this.accountNum= accountNumber++;
+		displayInfo();
 	}
 	
-	public void DisplayAccountInfo() {
-		System.out.println("Account number: "+ accountNumber);
-		System.out.println("Balance: "+ balance );
+	public void depositFund(double amount) {
+		initialBalance = initialBalance+ amount;
+		displayInfo();
 		
 	}
-
+	public void depositFund(double amount, double interest) {
+		initialBalance = initialBalance+
+				(interest* initialBalance/100)+ amount;
+		displayInfo();
+	}
+	
+	
+	public void withdrawFund(double amount) {
+		initialBalance = initialBalance- amount;
+		displayInfo();
+	}
+	
+	public void withdrawFund(double amount, double fee) {
+		initialBalance = initialBalance- amount-fee; 
+		displayInfo();
+	}
+	
+	public void displayInfo() {
+		System.out.println("====================");
+		System.out.println("Account name is: "+ name);
+		System.out.println("Account number is: "+ accountNum );
+		System.out.println("Initial Balance is: "+ initialBalance);
+		System.out.println("====================");
+	}
+	
 }
