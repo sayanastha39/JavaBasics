@@ -16,15 +16,18 @@ public class BankAccountRun {
 		
 		case "open":
 			RamAcc.displayInfo();
+			break;
 			
 		case "withdraw":
 			RamAcc.withdrawFund(200, 2);
+			break;
 		
 		case "deposit":
 			RamAcc.depositFund(500,4);
+			break;
 		default:
 			System.out.println("Wrong input");
-			
+			break;
 		}
 		input.close();
 	}
